@@ -15,7 +15,7 @@ qdox = { module = "com.thoughtworks.qdox:qdox", version = { require = "2.0-M9", 
 spock-core = { module = "org.spockframework:spock-core", version.ref = "spock" }
 spock-junit4 = { module = "org.spockframework:spock-junit4", version.ref = "spock" }
 junit4 = { module = "junit:junit", version = "4.13.2" }
-junitVintageEngine = { module = "org.junit.vintage:junit-vintage-engine", version = "5.12.1" }
+junitVintageEngine = { module = "org.junit.vintage:junit-vintage-engine", version = "5.12.2" }
 takariPluginTesting = { module = "io.takari.maven.plugins:takari-plugin-integration-testing", version = "3.0.5" }
 commonsLang = { module = "org.apache.commons:commons-lang3", version = "3.17.0" }
 exemplar-sampleCheck = { module = "org.gradle.exemplar:samples-check", version = "1.0.2" }
