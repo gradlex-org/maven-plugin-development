@@ -1,6 +1,6 @@
 # Usage sample
 
-This folder contains a sample for how to build a Maven plugin using the `de.benediktritter.maven-plugin-development` Gradle plugin and how to publish the Maven plugin in a way that it can be consumed from a Maven build.
+This folder contains a sample for how to build a Maven plugin using the `org.gradlex.maven-plugin-development` Gradle plugin and how to publish the Maven plugin in a way that it can be consumed from a Maven build.
 
 ## Introduction
 
