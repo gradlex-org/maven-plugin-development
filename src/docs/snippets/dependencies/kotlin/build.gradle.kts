@@ -6,7 +6,7 @@ plugins {
 val deps by configurations.creating
 
 dependencies {
-    deps("org.apache.commons:commons-lang3:3.17.0")
+    deps("org.apache.commons:commons-lang3:3.18.0")
     implementation("com.google.guava:guava:33.4.8-jre")
 }
 
