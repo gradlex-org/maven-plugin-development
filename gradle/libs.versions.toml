@@ -17,5 +17,5 @@ spock-junit4 = { module = "org.spockframework:spock-junit4", version.ref = "spoc
 junit4 = { module = "junit:junit", version = "4.13.2" }
 junitVintageEngine = { module = "org.junit.vintage:junit-vintage-engine", version = "5.13.3" }
 takariPluginTesting = { module = "io.takari.maven.plugins:takari-plugin-integration-testing", version = "3.1.1" }
-commonsLang = { module = "org.apache.commons:commons-lang3", version = "3.17.0" }
+commonsLang = { module = "org.apache.commons:commons-lang3", version = "3.18.0" }
 exemplar-sampleCheck = { module = "org.gradle.exemplar:samples-check", version = "1.0.3" }
