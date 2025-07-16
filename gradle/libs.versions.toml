@@ -8,7 +8,7 @@ mavenPluginTools-api = { module = "org.apache.maven.plugin-tools:maven-plugin-to
 mavenPluginTools-annotations = { module = "org.apache.maven.plugin-tools:maven-plugin-tools-annotations" }
 mavenPluginTools-java = { module = "org.apache.maven.plugin-tools:maven-plugin-tools-java" }
 mavenPluginTools-generators = { module = "org.apache.maven.plugin-tools:maven-plugin-tools-generators" }
-mavenPlugin-api = { module = "org.apache.maven:maven-plugin-api", version = "3.9.10" }
+mavenPlugin-api = { module = "org.apache.maven:maven-plugin-api", version = "3.9.11" }
 sisu-injectPlexus = { module = "org.sonatype.sisu:sisu-inject-plexus", version = "2.6.0" }
 plexus-velocity = { module = "org.codehaus.plexus:plexus-velocity", version = "2.2.1" }
 qdox = { module = "com.thoughtworks.qdox:qdox", version = { require = "2.0-M9", prefer = "2.0.0" } }
