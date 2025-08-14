@@ -17,6 +17,7 @@
 package org.gradlex.maven.plugin.development.fixtures
 
 import groovy.transform.Immutable
+import groovy.xml.XmlSlurper
 import org.apache.commons.lang3.ClassUtils
 import org.apache.commons.lang3.StringUtils
 
