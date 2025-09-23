@@ -7,7 +7,7 @@ val deps by configurations.creating
 
 dependencies {
     deps("org.apache.commons:commons-lang3:3.18.0")
-    implementation("com.google.guava:guava:33.4.8-jre")
+    implementation("com.google.guava:guava:33.5.0-jre")
 }
 
 mavenPlugin {
