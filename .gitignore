@@ -5,6 +5,9 @@
 build
 .kotlin/
 
+# Ignore IntelliJ IDEA config directory
+.idea/
+
 # Used by takari-plugin-testing library used in MavenEndToEndFuncTest
 # unfortunately this path is hard coded here https://github.com/takari/takari-plugin-testing-project/blob/04312cdd308b284ed8dfa9655174abc2efcbfe20/takari-plugin-testing/src/main/java/io/takari/maven/testing/executor/junit/MavenVersionResolver.java#L97
 # and can therefore not be changed to be inside the build directory.
