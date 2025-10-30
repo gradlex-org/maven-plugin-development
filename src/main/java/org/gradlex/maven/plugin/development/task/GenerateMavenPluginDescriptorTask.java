@@ -1,21 +1,9 @@
-/*
- * Copyright the GradleX team.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
+// SPDX-License-Identifier: Apache-2.0
 package org.gradlex.maven.plugin.development.task;
 
+import java.io.File;
+import java.util.Collection;
+import java.util.Collections;
 import org.apache.maven.artifact.DefaultArtifact;
 import org.apache.maven.artifact.handler.DefaultArtifactHandler;
 import org.apache.maven.model.Build;
@@ -42,10 +30,6 @@ import org.gradle.api.tasks.PathSensitivity;
 import org.gradle.api.tasks.TaskAction;
 import org.gradlex.maven.plugin.development.internal.MavenLoggerAdapter;
 import org.gradlex.maven.plugin.development.internal.MavenServiceFactory;
-
-import java.io.File;
-import java.util.Collection;
-import java.util.Collections;
 
 @CacheableTask
 public abstract class GenerateMavenPluginDescriptorTask extends AbstractMavenPluginDevelopmentTask {
@@ -83,13 +67,18 @@ public abstract class GenerateMavenPluginDescriptorTask extends AbstractMavenPlu
     private void checkArtifactId() {
         String artifactId = getPluginDescriptor().get().getGav().getArtifactId();
         if (artifactId.startsWith("maven-") && artifactId.endsWith("-plugin")) {
-            getLogger().warn("ArtifactIds of the form maven-___-plugin are reserved for plugins of the maven team. Please change the plugin artifactId to the format ___-maven-plugin.");
+            getLogger()
+                    .warn(
+                            "ArtifactIds of the form maven-___-plugin are reserved for plugins of the maven team. Please change the plugin artifactId to the format ___-maven-plugin.");
         }
     }
 
     private void writeDescriptor(PluginDescriptor pluginDescriptor) throws GeneratorException {
-        MavenProject mavenProject = mavenProject(getSourcesDirs(), getOutputDirectory().getAsFile().get());
-        generator.execute(getOutputDirectory().dir("META-INF/maven").get().getAsFile(), createPluginToolsRequest(mavenProject, pluginDescriptor));
+        MavenProject mavenProject =
+                mavenProject(getSourcesDirs(), getOutputDirectory().getAsFile().get());
+        generator.execute(
+                getOutputDirectory().dir("META-INF/maven").get().getAsFile(),
+                createPluginToolsRequest(mavenProject, pluginDescriptor));
     }
 
     private PluginDescriptor extractPluginDescriptor() {
@@ -104,12 +93,18 @@ public abstract class GenerateMavenPluginDescriptorTask extends AbstractMavenPlu
                 GAV gav = it.getGav();
                 for (File dir : dirs) {
                     DefaultArtifact artifact = new DefaultArtifact(
-                            gav.getGroup(), gav.getArtifactId(), gav.getVersion(), "compile", "jar", null, new DefaultArtifactHandler()
-                    );
+                            gav.getGroup(),
+                            gav.getArtifactId(),
+                            gav.getVersion(),
+                            "compile",
+                            "jar",
+                            null,
+                            new DefaultArtifactHandler());
                     artifact.setFile(dir);
                     pluginToolsRequest.getDependencies().add(artifact);
                 }
-                mavenProject.addProjectReference(mavenProject(gav.getGroup(), gav.getArtifactId(), gav.getVersion(), it.getSourceDirectories(), classesDir));
+                mavenProject.addProjectReference(mavenProject(
+                        gav.getGroup(), gav.getArtifactId(), gav.getVersion(), it.getSourceDirectories(), classesDir));
             });
             populatePluginDescriptor(pluginToolsRequest);
         });
@@ -127,42 +122,21 @@ public abstract class GenerateMavenPluginDescriptorTask extends AbstractMavenPlu
 
     private MavenProject mavenProject(FileCollection sourcesDirs, File outputDirectory) {
         GAV gav = getPluginDescriptor().get().getGav();
-        return mavenProject(
-                gav.getGroup(),
-                gav.getArtifactId(),
-                gav.getVersion(),
-                sourcesDirs,
-                outputDirectory
-        );
+        return mavenProject(gav.getGroup(), gav.getArtifactId(), gav.getVersion(), sourcesDirs, outputDirectory);
     }
 
     private MavenProject mavenProject(
-            String groupId,
-            String artifactId,
-            String version,
-            FileCollection sourcesDirs,
-            File outputDirectory
-    ) {
+            String groupId, String artifactId, String version, FileCollection sourcesDirs, File outputDirectory) {
         return mavenProject(groupId, artifactId, version, sourcesDirs.getFiles(), outputDirectory);
     }
 
     private MavenProject mavenProject(
-            String groupId,
-            String artifactId,
-            String version,
-            File sourcesDirs,
-            File outputDirectory
-    ) {
+            String groupId, String artifactId, String version, File sourcesDirs, File outputDirectory) {
         return mavenProject(groupId, artifactId, version, Collections.singleton(sourcesDirs), outputDirectory);
     }
 
     private MavenProject mavenProject(
-            String groupId,
-            String artifactId,
-            String version,
-            Collection<File> sourcesDirs,
-            File outputDirectory
-    ) {
+            String groupId, String artifactId, String version, Collection<File> sourcesDirs, File outputDirectory) {
         MavenProject project = new MavenProject();
 
         project.setGroupId(groupId);
@@ -179,4 +153,3 @@ public abstract class GenerateMavenPluginDescriptorTask extends AbstractMavenPlu
         return project;
     }
 }
-

@@ -1,21 +1,8 @@
-/*
- * Copyright the GradleX team.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
+// SPDX-License-Identifier: Apache-2.0
 package org.gradlex.maven.plugin.development.task;
 
+import java.util.stream.Collectors;
+import javax.inject.Inject;
 import org.apache.maven.plugin.descriptor.PluginDescriptor;
 import org.apache.maven.project.MavenProject;
 import org.apache.maven.tools.plugin.DefaultPluginToolsRequest;
@@ -25,9 +12,6 @@ import org.gradle.api.file.FileSystemOperations;
 import org.gradle.api.provider.ListProperty;
 import org.gradle.api.provider.Property;
 import org.gradle.api.tasks.Nested;
-
-import javax.inject.Inject;
-import java.util.stream.Collectors;
 
 public abstract class AbstractMavenPluginDevelopmentTask extends DefaultTask {
 
@@ -50,18 +34,18 @@ public abstract class AbstractMavenPluginDevelopmentTask extends DefaultTask {
         result.setGoalPrefix(
                 pluginDescriptor.getGoalPrefix() != null
                         ? pluginDescriptor.getGoalPrefix()
-                        : PluginDescriptor.getGoalPrefixFromArtifactId(pluginDescriptor.getGav().getArtifactId())
-        );
+                        : PluginDescriptor.getGoalPrefixFromArtifactId(
+                                pluginDescriptor.getGav().getArtifactId()));
         result.setName(pluginDescriptor.getName());
         result.setDescription(pluginDescriptor.getDescription());
         result.setDependencies(getRuntimeDependencies().get().stream()
-                .map( DependencyDescriptor::toComponentDependency)
-                .collect(Collectors.toList())
-        );
+                .map(DependencyDescriptor::toComponentDependency)
+                .collect(Collectors.toList()));
         return result;
     }
 
-    protected PluginToolsRequest createPluginToolsRequest(MavenProject mavenProject, PluginDescriptor pluginDescriptor) {
+    protected PluginToolsRequest createPluginToolsRequest(
+            MavenProject mavenProject, PluginDescriptor pluginDescriptor) {
         DefaultPluginToolsRequest request = new DefaultPluginToolsRequest(mavenProject, pluginDescriptor);
         request.setSkipErrorNoDescriptorsFound(true);
         return request;
