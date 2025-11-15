@@ -1,21 +1,7 @@
-/*
- * Copyright the GradleX team.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
+// SPDX-License-Identifier: Apache-2.0
 package org.gradlex.maven.plugin.development.task;
 
+import java.io.File;
 import org.apache.maven.model.Build;
 import org.apache.maven.project.MavenProject;
 import org.apache.maven.project.artifact.ProjectArtifact;
@@ -33,8 +19,6 @@ import org.gradle.api.tasks.OutputFile;
 import org.gradle.api.tasks.TaskAction;
 import org.gradlex.maven.plugin.development.internal.MavenLoggerAdapter;
 
-import java.io.File;
-
 @CacheableTask
 public abstract class GenerateHelpMojoSourcesTask extends AbstractMavenPluginDevelopmentTask {
 
@@ -47,8 +31,6 @@ public abstract class GenerateHelpMojoSourcesTask extends AbstractMavenPluginDev
 
     @Input
     public abstract Property<String> getHelpMojoPackage();
-
-
 
     private final MavenLoggerAdapter loggerAdapter = new MavenLoggerAdapter(getLogger());
 
@@ -81,7 +63,8 @@ public abstract class GenerateHelpMojoSourcesTask extends AbstractMavenPluginDev
     }
 
     private VelocityComponent createVelocityComponent() {
-        // fix for broken debugging due to reflection happening inside Velocity (RuntimeInstance#initializeResourceManager())
+        // fix for broken debugging due to reflection happening inside Velocity
+        // (RuntimeInstance#initializeResourceManager())
         ClassLoader currentContextClassLoader = Thread.currentThread().getContextClassLoader();
         try {
             Thread.currentThread().setContextClassLoader(getClass().getClassLoader());
