@@ -18,4 +18,3 @@ junit4 = { module = "junit:junit", version = "4.13.2" }
 junitVintageEngine = { module = "org.junit.vintage:junit-vintage-engine", version = "6.0.1" }
 takariPluginTesting = { module = "io.takari.maven.plugins:takari-plugin-integration-testing", version = "3.1.1" }
 commonsLang = { module = "org.apache.commons:commons-lang3", version = "3.20.0" }
-exemplar-sampleCheck = { module = "org.gradle.exemplar:samples-check", version = "1.0.3" }
