@@ -22,11 +22,11 @@ To enable it specify the package the HelpMojo should be generated in:
 
 [source.multi-language-sample,groovy]
 ----
-include::{snippets-path}/help-mojo/groovy/build.gradle[tags=help-mojo]
+include::{samples-path}/help-mojo/groovy/build.gradle[tags=help-mojo]
 ----
 [source.multi-language-sample,kotlin]
 ----
-include::{snippets-path}/help-mojo/kotlin/build.gradle.kts[tags=help-mojo]
+include::{samples-path}/help-mojo/kotlin/build.gradle.kts[tags=help-mojo]
 ----
 
 == Controlling plugin dependencies
@@ -37,9 +37,9 @@ In the following examples only `org.apache.commons:commons-lang3:3.9` will be ad
 
 [source.multi-language-sample,groovy]
 ----
-include::{snippets-path}/dependencies/groovy/build.gradle[tags=dependencies]
+include::{samples-path}/dependencies/groovy/build.gradle[tags=dependencies]
 ----
 [source.multi-language-sample,kotlin]
 ----
-include::{snippets-path}/dependencies/kotlin/build.gradle.kts[tags=dependencies]
+include::{samples-path}/dependencies/kotlin/build.gradle.kts[tags=dependencies]
 ----
