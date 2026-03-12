@@ -1,4 +1,4 @@
-plugins { id("org.gradlex.internal-build-conventions") version "0.10" }
+plugins { id("org.gradlex.internal-build-conventions") version "0.11" }
 
 rootProject.name = "maven-plugin-development"
 
