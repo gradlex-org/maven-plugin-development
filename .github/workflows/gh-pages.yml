@@ -29,10 +29,10 @@ jobs:
         with:
           build-scan-terms-of-use-url: https://gradle.com/help/legal-terms-of-use
           build-scan-terms-of-use-agree: yes
-      - run: "./gradlew :asciidoctor --no-configuration-cache"
+      - run: "./gradlew asciidoctorAll"
       - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
         with:
-          path: "./build/docs/asciidoc"
+          path: "./build/docs/asciidoc/html"
 
   deploy:
     environment:
