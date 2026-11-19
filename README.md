@@ -2,6 +2,7 @@
 
 [![GitHub Actions](https://github.com/gradlex-org/maven-plugin-development/actions/workflows/ci-build.yml/badge.svg)](https://github.com/gradlex-org/maven-plugin-development/actions/workflows/ci-build.yml)
 [![Gradle Plugin Portal](https://img.shields.io/maven-metadata/v?label=Plugin%20Portal&metadataUrl=https%3A%2F%2Fplugins.gradle.org%2Fm2%2Forg%2Fgradlex%2Fmaven-plugin-development%2Forg.gradlex.maven-plugin-development.gradle.plugin%2Fmaven-metadata.xml)](https://plugins.gradle.org/plugin/org.gradlex.maven-plugin-development)
+[![Revved up by Develocity](https://img.shields.io/badge/Revved%20up%20by-Develocity-06A0CE?logo=Gradle&labelColor=02303A)](https://community.develocity.cloud/scans?search.names=Git%20repository&search.values=*gradlex-org%2F*)
 
 This plugin aims to fill the tiny gap for people who need to create an [Apache Maven](https://maven.apache.org) plugin from a Gradle build.
 To do this the plugin wraps around the [Maven Plugin Tools API](https://maven.apache.org/plugin-tools/) and feeds it with the right inputs from the Gradle build.
