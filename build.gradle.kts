@@ -18,6 +18,23 @@ dependencies {
     implementation(libs.plexus.velocity) { because("it is needed to generate the help mojo") }
     constraints {
         implementation(libs.qdox) { because("we need the fix for https://github.com/paul-hammant/qdox/issues/43") }
+        implementation(libs.jsoup) {
+            because(
+                "fixes https://github.com/advisories/GHSA-65r4-943x-97jj and https://github.com/advisories/GHSA-pmhh-3w7g-xqp8"
+            )
+        }
+        implementation(libs.plexus.utils) { because("fixes https://github.com/advisories/GHSA-6fmv-xxpf-w3cw") }
+        implementation(libs.guava) { because("fixes https://github.com/advisories/GHSA-xxph-c9ww-hj94") }
+        implementation(libs.plexus.archiver) {
+            because(
+                "versions >= 4.11.0 no longer bring io.airlift:aircompressor < 2.0.3, fixes https://github.com/advisories/GHSA-vx9q-rhv9-3jvg"
+            )
+        }
+        implementation(libs.commonsLang) {
+            because(
+                "fixes https://github.com/advisories/GHSA-j288-q9x7-2f5v for users resolving commons-lang3 < 3.18, e.g. through velocity-engine-core 2.4"
+            )
+        }
     }
 
     testFixturesImplementation(libs.junit4)
